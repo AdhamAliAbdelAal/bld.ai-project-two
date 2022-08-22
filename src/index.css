@@ -1,13 +1,459 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*navbar styling*/
+
+nav {
+  display: flex;
+  background-color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 400;
+  align-items: center;
+  text-align: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-family: Helvetica, Arial, sans-serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol";
+  box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+}
+
+nav>* {
+  margin-right: 10px;
+}
+
+.search-div {
+  flex-grow: 17;
+  border-radius: 9999px;
+  border: 1px #000 solid;
+  height: 3rem;
+  display: flex;
+  background-color: #f7f9fa;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.search-div div {
+  padding: 3%;
+}
+
+.search-div input[type=text] {
+  border-width: 0;
+  background-color: inherit;
+  height: 100%;
+  outline: none;
+  flex-grow: 1;
+  max-width: 86%;
+  border-radius: 9999px;
+  border: 1px #f7f9fa solid;
+}
+
+.search-div i {
+  color: #8A8B8D;
+}
+
+a,
+nav {
+  text-transform: capitalize;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.search-div button {
+  padding: 0;
+  border: 0;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.login-button {
+  border: 1px rgb(0, 0, 0) solid;
+  font-weight: bold;
+  padding: 10px 0px;
+}
+
+.signup-button {
+  border: 1px rgb(0, 0, 0) solid;
+  font-weight: bold;
+  padding: 10px 0px;
+  background-color: #000;
+  color: #ffffff
+}
+
+.global-button {
+  border: 1px rgb(0, 0, 0) solid;
+  font-weight: bold;
+  padding: 10px 0px;
+  max-width: 40px;
+}
+
+/*header styling*/
+
+header {
+  width: 89%;
+  margin: auto;
+  background-color: #DEDEDE;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+}
+
+
+header div {
+  background-color: #ffffff;
+  padding: 20px;
+  font-family: Georgia, Times, "times new roman", serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol";
+  box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+}
+
+header p,
+.sec1 p {
+  line-height: 1.4;
+  margin-top: 15px;
+}
+
+header p::first-letter,
+header h1::first-letter,
+.sec1 p::first-letter,
+.sec1 h1::first-letter,
+.sec1 h2::first-letter {
+  text-transform: capitalize;
+}
+
+/*section one styling*/
+.sec1 {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 89%;
+}
+
+.sec1>* {
+  width: 95%;
+  margin: auto;
+}
+
+.sec1>div:first-child {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  font-family: Georgia, Times, "times new roman", serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol";
+}
+
+.sec1 ul {
+  display: flex;
+  list-style-type: none;
+  padding-left: 0;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.sec1 li {
+  color: #6a6f73;
+  font-family: "segoe ui", Helvetica, Arial, sans-serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol";
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.02rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+  margin-right: 25px;
+}
+
+.sec1 li:hover {
+  color: #000;
+  cursor: pointer;
+}
+
+.sec1 ul li span {
+  text-transform: uppercase;
+}
+
+.topics-div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px rgb(68, 68, 68) solid;
+  padding: 20px;
+  font-family: Georgia, Times, "times new roman", serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol";
+
+}
+
+.explore-button {
+  margin: 18px 0px;
+  border: 1px #000 solid;
+  width: fit-content;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.rating {
+  color: #e59819;
+  font-size: 0.9rem;
+}
+
+.courses-div {
+  padding: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.course-card {
+  max-width: 240px;
+  margin-bottom: 20px;
+}
+
+.course-details {
+  width: 100%;
+  padding: 5px 0;
+}
+
+.course-details>* {
+  margin: 5px 0px;
+}
+
+.author-span,
+.coures-rating-span {
+  font-size: 0.8rem;
+}
+
+.author-span,
+.coures-rating-span,
+.old-price-span {
+  color: #6a6f73;
+}
+
+.price-span {
+  font-weight: bold;
+}
+
+.old-price-span {
+  text-decoration: line-through;
+}
+
+/*media queries*/
+@media (max-width:320px) {
+
+  .sec1,
+  header {
+      width: 94%;
+  }
+}
+
+@media(max-width:800px) {
+  .menu {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 900;
+  }
+
+  nav>*:not(:last-child):not(:first-child) {
+      display: none;
+  }
+
+  nav {
+      height: 60px;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+  }
+
+  header {
+      flex-direction: column-reverse;
+  }
+
+  header img {
+      width: 70%;
+  }
+
+  header div {
+      width: 100%;
+  }
+
+  header p,
+  .sec1 p {
+      font-size: 1rem;
+  }
+
+  header h1,
+  .sec1 h1 {
+      font-size: 1.2rem;
+  }
+
+  .sec1 h2 {
+      font-size: 1rem;
+  }
+
+  .topics-div p {
+      font-size: 0.8rem;
+  }
+
+  .tabs {
+      display: none;
+  }
+}
+
+@media(min-width:800px)and (max-width:920px) {
+  .udemy-business {
+      display: none;
+  }
+
+  .teach-on-udemy {
+      display: none;
+  }
+
+  .menu {
+      display: none;
+  }
+
+  nav {
+      height: 70px;
+      flex-direction: row;
+  }
+
+  nav>*:not(.search-div) {
+      flex-grow: 1;
+  }
+
+  header {
+      flex-direction: column-reverse;
+  }
+
+  header img {
+      width: 70%;
+  }
+
+  header div {
+      width: 100%;
+  }
+
+  header p,
+  .sec1 p {
+      font-size: 1.1rem;
+  }
+
+  header h1,
+  .sec1 h1 {
+      font-size: 1.4rem;
+  }
+
+  .sec1 h2 {
+      font-size: 1.2rem;
+  }
+
+  .topics-div p {
+      font-size: 0.9rem;
+  }
+
+  .tabs {
+      display: none;
+  }
+}
+
+@media(min-width:920px)and (max-width:1080px) {
+  .udemy-business {
+      display: none;
+  }
+
+  .teach-on-udemy {
+      display: block;
+  }
+
+  .menu {
+      display: none;
+  }
+
+  nav {
+      height: 70px;
+      flex-direction: row;
+  }
+
+  nav>*:not(.search-div) {
+      flex-grow: 1;
+  }
+
+  header {
+      height: 30vw;
+      justify-content: space-evenly;
+  }
+
+  header img {
+      width: 40%;
+  }
+
+  header div {
+      width: 40%;
+  }
+
+  header p,
+  .sec1 p {
+      font-size: 1.4vw;
+  }
+
+  header h1,
+  .sec1 h1 {
+      font-size: 2.2vw;
+  }
+
+  .sec1 h2 {
+      font-size: 2vw;
+  }
+
+  .topics-div p {
+      font-size: 1.2vw;
+  }
+
+  .tabs {
+      display: none;
+  }
+}
+
+@media(min-width:1080px) {
+  .udemy-business {
+      display: block;
+  }
+
+  .teach-on-udemy {
+      display: block;
+  }
+
+  .menu {
+      display: none;
+  }
+
+  nav {
+      height: 70px;
+      flex-direction: row;
+  }
+
+  nav>*:not(.search-div) {
+      flex-grow: 1;
+  }
+
+  header {
+      height: 30vw;
+      justify-content: space-evenly;
+  }
+
+  header img {
+      width: 40%;
+  }
+
+  header div {
+      width: 40%;
+  }
+
+  header p,
+  .sec1 p {
+      font-size: 1.2vw;
+  }
+
+  header h1,
+  .sec1 h1 {
+      font-size: 2vw;
+  }
+
+  .topics-div p {
+      font-size: 1.1vw;
+  }
 }
