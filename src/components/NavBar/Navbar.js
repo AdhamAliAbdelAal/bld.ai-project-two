@@ -1,6 +1,8 @@
-import React from 'react';
-
+import { useRef,useContext } from "react";
+import SearchContext from "../../context/SearchContext";
 const Navbar = () => {
+    const inputRef=useRef(null);
+    const {setSearch}=useContext(SearchContext);
     return (
         <nav>
             <a href="https://www.udemy.com"><img src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
@@ -10,9 +12,12 @@ const Navbar = () => {
             </div>
             <form className="search-div" action="">
                 <div>
-                    <button type="submit"><i className="bi bi-search"></i></button>
+                    <button type="submit" onClick={(e)=>{
+                        e.preventDefault();
+                        setSearch(inputRef.current.value);
+                    }}><i className="bi bi-search"></i></button>
                 </div>
-                <input type="text" placeholder="Search for anything" />
+                <input ref={inputRef} type="text" placeholder="Search for anything" />
             </form>
             <div className="udemy-business">
                 <a href="dummy">udemy business</a>
