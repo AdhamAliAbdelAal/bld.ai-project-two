@@ -1,12 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
-import CoursesList from './CoursesList';
+import Home from './pages/Home/Home';
 function App() {
   return (
-    <div className="App">
-      <CoursesList />
-    </div>
+    <Home />
   );
 }
-
 export default App;

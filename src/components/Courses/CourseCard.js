@@ -1,4 +1,5 @@
 const CourseCard = ({ course }) => {
+    const {image,title,author,rating,people,price,discount}=course;
     const renderStars=(rating)=>{
         let counter=0;
         const stars=[];
@@ -6,7 +7,7 @@ const CourseCard = ({ course }) => {
         {
             stars.push(<i className="bi bi-star-fill" key={counter++}></i>);
         }
-        if(Math.floor(rating)!=rating)
+        if(Math.floor(rating)!==rating)
         {
             stars.push(<i className="bi bi-star-half" key={counter++}></i>);
         }
@@ -17,18 +18,18 @@ const CourseCard = ({ course }) => {
         return stars;
     }
     return (
-        <div className="course-card">
-            <img src={course.image} alt="course image" />
+        <div className="course-card mx-1">
+            <img src={image} alt="course" />
             <div className="course-details">
-                <h4>{course.title}</h4>
-                <span className="author-span">{course.author}</span>
+                <h4 className="text-capitalize fs-6 fw-bold">{title}</h4>
+                <span className="author-span">{author}</span>
                 <div className="rating">
-                    {course.rating}
-                    {renderStars(course.rating)}
-                    <span className="coures-rating-span">({course.people})</span>
+                    {rating.toFixed(1)}
+                    {renderStars(rating)}
+                    <span className="coures-rating-span">({people})</span>
                 </div>
-                <span className="price-span">E£{course.price} &nbsp;</span>
-                <span className="old-price-span">E£{course.discount}</span>
+                <span className="price-span">E£{price} &nbsp;</span>
+                <span className="old-price-span">E£{discount}</span>
             </div>
         </div>
     );
