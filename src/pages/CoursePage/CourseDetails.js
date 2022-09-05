@@ -1,7 +1,9 @@
 import "./CourseDetails.css";
 import { useState, useEffect } from 'react';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import renderStars from '../../components/Courses/Starts';
+import CourseHeader from "../../components/Header/CourseHeader";
+import CourseTabs from "../../components/Tabs/CourseTabs";
+import LearnSection from "../../components/LearnSection";
+import CourseContent from "../../components/Courses/CourseContent";
 const CourseDetails = () => {
     const [data, setData] = useState(null);
     useEffect(() => {
@@ -10,33 +12,14 @@ const CourseDetails = () => {
     console.log(data);
     if (!data)
         return null;
-    const { title, Introduction, rate } = data;
     return (
-        <div className="bg-dark text-white">
-            <div className="container w-75">
-                <div className="title-containter">
-                    <div className="links-div py-4">
-                        <a href="dummy">Development</a>
-                        <ArrowForwardIosIcon className="mx-2" sx={{ fontSize: "0.6rem" }} />
-                        <a href="dummy">Programming Languages</a>
-                        <ArrowForwardIosIcon className="mx-2" sx={{ fontSize: "0.6rem" }} />
-                        <a href="dummy">Python</a>
-                    </div>
-                    <h2 className="fw-bold">
-                        {title}
-                    </h2>
-                    <h5 className="fw-normal">
-                        {Introduction}
-                    </h5>
-                    <div className="rating fw-bold" style={{
-                        fontSize:"0.87rem"
-                    }}>
-                        {rate} {renderStars(rate)}
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        <>
+            <CourseHeader data={data} />
+            <CourseTabs />
+            <hr style={{margin:0}} />
+            <LearnSection overview={data.overview} />
+            <CourseContent content={data.content}/>
+        </>
     );
 }
 

@@ -6,7 +6,7 @@ const SectionOne = () => {
     const [courses, setCourses] = useState(null);
     const [topic, setTopic] = useState(0);
     useEffect(() => {
-        fetch("http://localhost:8000/courses").then(response => response.json()).then(data => setCourses(data));
+        fetch("http://localhost:7000/courses").then(response => response.json()).then(data => setCourses(data));
     }, []);
     if (!courses)
         return null;

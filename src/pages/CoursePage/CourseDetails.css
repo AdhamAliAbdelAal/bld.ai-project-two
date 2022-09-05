@@ -6,7 +6,88 @@
 .links-div a {
     color: #CEC0FC !important;
 }
-.title-containter
-{
+
+.course-container{
     max-width: 700px;
+}
+.mx-05{
+    margin-left: 1.5px;
+    margin-right: 1.5px;
+}
+.rating-count{
+    color: #CEC0FC !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+    text-transform: lowercase;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.header-font{
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+.instructor-par
+{
+    color: #CEC0FC !important;
+    text-decoration: underline !important;
+}
+
+.course-tab
+{
+    color: #6A6F73 !important;
+    font-weight:bold;
+    font-size: 0.9rem ;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    cursor: pointer;
+}
+
+.active-course-tab,.course-tab:hover
+{
+    color: black !important;
+    border-bottom: 3px solid black;
+    padding-bottom: 12px;
+    padding-top: 11px;
+}
+
+.overview-item,.content-item,.duration-info{
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #515151 !important;
+}
+.overview-item::marker{
+    display: flex;
+    justify-content: center;
+    height: 16px !important;
+}
+ul.overview{
+    list-style-image: url('../../images/check2.svg');
+}
+.css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
+    margin: 12px 0 !important;
+}
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
+    min-height: 48px !important;
+}
+
+.vidoes-list li{
+    font-size: 0.95rem;
+}
+
+ul.vidoes-list
+{
+    list-style-type: none;
+    margin: 0;
+}
+
+.css-15v22id-MuiAccordionDetails-root {
+    padding: 8px 16px 8px !important;
+}
+.video-duration{
+    color: #666666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+.css-19fv6u5-MuiPaper-root-MuiAccordion-root.Mui-expanded:before {
+    opacity: 1 !important;
 }
