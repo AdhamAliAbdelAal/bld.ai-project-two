@@ -7,14 +7,16 @@
     color: #CEC0FC !important;
 }
 
-.course-container{
+.course-container {
     max-width: 700px;
 }
-.mx-05{
+
+.mx-05 {
     margin-left: 1.5px;
     margin-right: 1.5px;
 }
-.rating-count{
+
+.rating-count {
     color: #CEC0FC !important;
     text-decoration: underline !important;
     cursor: pointer;
@@ -22,60 +24,74 @@
     margin-left: 4px;
     margin-right: 4px;
 }
-.header-font{
+
+.header-font {
     font-size: 0.9rem;
     font-weight: 400;
 }
-.instructor-par
-{
+
+.instructor-par {
     color: #CEC0FC !important;
     text-decoration: underline !important;
 }
 
-.course-tab
-{
+.course-tab {
     color: #6A6F73 !important;
-    font-weight:bold;
-    font-size: 0.9rem ;
+    font-weight: bold;
+    font-size: 0.9rem;
     padding-top: 13px;
     padding-bottom: 13px;
     cursor: pointer;
 }
 
-.active-course-tab,.course-tab:hover
-{
+.active-course-tab,
+.course-tab:hover {
     color: black !important;
     border-bottom: 3px solid black;
     padding-bottom: 12px;
     padding-top: 11px;
 }
 
-.overview-item,.content-item,.duration-info{
+.overview-item,
+.content-item,
+.duration-info {
     font-weight: 400;
     font-size: 0.9rem;
     color: #515151 !important;
 }
-.overview-item::marker{
+
+.overview-item::marker {
     display: flex;
     justify-content: center;
     height: 16px !important;
 }
-ul.overview{
+
+ul.overview {
     list-style-image: url('../../images/check2.svg');
 }
+
 .css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
     margin: 12px 0 !important;
 }
+
 .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
     min-height: 48px !important;
 }
 
-.vidoes-list li{
+.vidoes-list li,
+.req-item,
+.description,
+.instructor-description {
     font-size: 0.95rem;
 }
-
-ul.vidoes-list
+.req-item,
+.description,
+.instructor-description
 {
+    color:#515151;
+}
+
+ul.vidoes-list {
     list-style-type: none;
     margin: 0;
 }
@@ -83,31 +99,32 @@ ul.vidoes-list
 .css-15v22id-MuiAccordionDetails-root {
     padding: 8px 16px 8px !important;
 }
-.video-duration{
+
+.video-duration {
     color: #666666;
     font-size: 0.9rem;
     margin: 0;
 }
+
 .css-19fv6u5-MuiPaper-root-MuiAccordion-root.Mui-expanded:before {
     opacity: 1 !important;
 }
-.show-more-div > div:nth-child(3)
-{
+
+.show-more-div>div:nth-child(3) {
     opacity: 1 !important;
-    
+
 }
 
-.button-div
-{
+.button-div {
     padding: 0 !important;
-    
+
 }
-.show-more-button
-{
+
+.show-more-button {
     background: rgb(255, 255, 255) !important;
     color: rgb(0, 0, 0) !important;
     padding: 7px 15px !important;
-    border-radius: 0 !important; 
+    border-radius: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     cursor: pointer;
@@ -116,6 +133,34 @@ ul.vidoes-list
     border: 1px solid #000;
     margin-top: 20px;
 }
-.show-more-button:hover{
+
+.show-more-button:hover {
     background-color: #e9e9e9 !important;
+}
+
+ul.req {
+    list-style-position: inside;
+    padding-left: 3px;
+}
+
+.show-more-button-desc {
+    color: #5624d0 !important;
+    width: fit-content !important;
+    font-size: 0.9rem !important;
+    border: 0 !important;
+    background-color: transparent !important;
+    font-weight: 600;
+    padding-left: 0 !important;
+    outline: 0px !important;
+}
+
+.instructor-name {
+    color: #5624d0;
+    text-decoration: underline;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.instructor-name:hover {
+    color: #4c22b8;
 }
