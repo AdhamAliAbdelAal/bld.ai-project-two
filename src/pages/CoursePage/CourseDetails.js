@@ -7,6 +7,7 @@ import CourseContent from "../../components/Courses/CourseContent";
 import CourseRequirements from "../../components/Courses/CourseRequirements";
 import CourseDescription from "../../components/Courses/CourseDescription";
 import Instructors from "../../components/Courses/Instructors";
+import Feedback from "../../components/Courses/Feedback";
 const CourseDetails = () => {
     const [data, setData] = useState(null);
     useEffect(() => {
@@ -25,6 +26,7 @@ const CourseDetails = () => {
             <CourseRequirements requirements={data.requirements} />
             <CourseDescription description={data.description} />
             <Instructors instructor={data.instructor} />
+            <Feedback studentFeedback={data.studentFeedback} rate={data.rate} />
         </>
     );
 }
