@@ -2,6 +2,9 @@ import { createContext } from "react";
 
 const ReviewsContext=createContext();
 
-const ReviewsProvider=({children})=>{
-    return 
+export const ReviewsProvider=({children,value})=>{
+    return <ReviewsContext.Provider value={value}>
+        {children}
+    </ReviewsContext.Provider>
 }
+export default ReviewsContext
