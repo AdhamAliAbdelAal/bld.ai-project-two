@@ -173,6 +173,25 @@ ul.req {
     font-family: sans-serif;
 }
 
-.rating-item
+.search-reviews > *,.select-review
 {
+    border: 0;
+    outline: 0;
+}
+.search-reviews,.select-review{
+    border:1px solid #000;
+    height: 40px;
+}
+.review-button
+{
+    height: 102%;
+    width:44px;
+}
+.search-reviews
+{
+    flex-grow: 4;
+    border-right: 0;
+}
+.select-review{
+    flex-grow: 2;
 }
