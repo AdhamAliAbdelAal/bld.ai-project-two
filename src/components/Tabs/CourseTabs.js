@@ -5,9 +5,9 @@ const CourseTabs = () => {
     const [value, setvalue] = useState("overview");
     return (
         <div className="fluid position-sticky top-0 bg-white" style={{
-            zIndex:100000000000000
+            zIndex:100000
         }}>
-            <div className="container w-75">
+            <div className="main-container">
                 <div className="course-container d-flex justify-content-between">
                     {tabs.map(tab => {
                         const activeClass = value === tab ? "active-course-tab" : null;

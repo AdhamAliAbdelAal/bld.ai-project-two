@@ -1,7 +1,7 @@
 import ShowMore from 'react-show-more-button';
 const CourseDescription = ({ description }) => {
     return (
-        <div className="container w-75 my-4">
+        <div className="main-container my-4">
             <div className="course-container">
                 <ShowMore
                     maxHeight={195}

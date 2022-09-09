@@ -10,6 +10,21 @@
 .course-container {
     max-width: 720px;
 }
+.main-container
+{
+    max-width: 1182px;
+    margin: auto;
+}
+.course-card2{
+    width:340px;
+    height: 880px;
+    border:1px solid #fff;
+    position: absolute;
+    right: 240px;
+    top:103px;
+    z-index: 1000000;
+    box-shadow: 2px 2px 30px rgba(0,0,0,.175),-2px -2px 30px rgba(0,0,0,.175);
+}
 
 .mx-05 {
     margin-left: 1.5px;

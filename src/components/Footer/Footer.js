@@ -5,9 +5,9 @@ const Footer = () => {
         <footer className='fluid bg-dark text-white m-0 mt-5'>
             <div className="fluid mx-auto w-100 d-flex align-items-center justify-content-between">
                 <h5 className="mb-0">
-                    Top companies choose <span class="udemy-span">Udemy Business</span> to build in-demand career skills.
+                    Top companies choose <span className="udemy-span">Udemy Business</span> to build in-demand career skills.
                 </h5>
-                <div class="d-flex gap-customized">
+                <div className="d-flex gap-customized">
                     <img alt="Nasdaq" height="44" width="115" src="https://s.udemycdn.com/partner-logos/v4/nasdaq-light.svg" />
                     <img alt="Volkswagen" height="44" width="44" src="https://s.udemycdn.com/partner-logos/v4/volkswagen-light.svg" />
                     <img alt="Box" height="44" width="67" src="https://s.udemycdn.com/partner-logos/v4/box-light.svg" />

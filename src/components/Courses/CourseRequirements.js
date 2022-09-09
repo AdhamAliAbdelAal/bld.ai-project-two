@@ -1,7 +1,7 @@
 
 const CourseRequirements = ({ requirements }) => {
     return (
-        <div className="container w-75 my-4">
+        <div className="main-container my-4">
             <div className="course-container">
                 <h4 className="fw-bold fs-4">
                     Requirements

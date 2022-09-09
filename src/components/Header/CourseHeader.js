@@ -3,13 +3,13 @@ import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import renderStars from '../../components/Courses/Starts';
 import LanguageIcon from '@mui/icons-material/Language';
 import ClosedCaptionIcon from '@mui/icons-material/ClosedCaption';
-
+import CouresFixedCard from '../Courses/CouresFixedCard';
 const CourseHeader = ({data}) => {
     const { title, Introduction, rate, ratingCount, enrollCount: students, instructor,
         lastUpdate } = data;
     return (
         <div className="bg-dark text-white">
-            <div className="container w-75">
+            <div className="main-container">
                 <div className="course-container">
                     <div className="links-div py-4">
                         <a href="dummy">Development</a>
@@ -69,6 +69,7 @@ const CourseHeader = ({data}) => {
                         </div>
                     </div>
                 </div>
+                <CouresFixedCard />
             </div>
         </div>
     );

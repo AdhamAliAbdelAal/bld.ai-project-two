@@ -14,7 +14,7 @@ const Instructors = ({ instructor }) => {
         fontSize: "0.98rem"
     };
     return (
-        <div className="container w-75 my-5">
+        <div className="main-container my-5">
             <div className="course-container">
                 <div>
                     <h4 className="fw-bold fs-4">
