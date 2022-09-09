@@ -2,7 +2,7 @@ import "./CourseDetails.css";
 import { useState, useEffect } from 'react';
 import CourseHeader from "../../components/Header/CourseHeader";
 import CourseTabs from "../../components/Tabs/CourseTabs";
-import LearnSection from "../../components/LearnSection";
+import LearnSection from "../../components/Courses/LearnSection";
 import CourseContent from "../../components/Courses/CourseContent";
 import CourseRequirements from "../../components/Courses/CourseRequirements";
 import CourseDescription from "../../components/Courses/CourseDescription";
@@ -10,6 +10,7 @@ import Instructors from "../../components/Courses/Instructors";
 import Feedback from "../../components/Courses/Feedback";
 import Reviews from "../../components/Courses/Reviews";
 import { ReviewsProvider } from "../../context/ReviewsContext";
+import { FeedbackProvider } from "../../context/FeedbackContext";
 const CourseDetails = () => {
     const [data, setData] = useState(null);
     useEffect(() => {
@@ -28,11 +29,12 @@ const CourseDetails = () => {
             <CourseRequirements requirements={data.requirements} />
             <CourseDescription description={data.description} />
             <Instructors instructor={data.instructor} />
-            <Feedback studentFeedback={data.studentFeedback} rate={data.rate} />
-            <ReviewsProvider value={data.reviews}>
-                <Reviews/>
-            </ReviewsProvider>
-
+            <FeedbackProvider>
+                <Feedback studentFeedback={data.studentFeedback} rate={data.rate} />
+                <ReviewsProvider value={data.reviews}>
+                    <Reviews />
+                </ReviewsProvider>
+            </FeedbackProvider>
         </>
     );
 }

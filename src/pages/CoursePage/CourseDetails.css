@@ -179,7 +179,7 @@ ul.req {
     outline: 0;
 }
 .search-reviews,.select-review{
-    border:2px solid #000;
+    border:1px solid #000;
     height: 40px;
 }
 .review-button

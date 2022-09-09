@@ -1,18 +1,24 @@
 import { Rating } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-import { useState } from "react";
+import { useState,useContext } from "react";
+import FeedbackContext from "../../context/FeedbackContext";
 const Feedback = ({ studentFeedback, rate }) => {
+    const {setRating}=useContext(FeedbackContext);
     const ratings = [5, 4, 3, 2, 1];
     const [opacity, setOpacity] = useState([1, 0.5, 0.5, 0.5, 0.5]);
     const handleActive = (index) => {
         const newOpacity = new Array(5).fill(0.5);
         newOpacity[index] = 1;
         setOpacity(newOpacity);
+        setRating(ratings[index]);
     }
     const handleActiveAll = (index) => {
-        //console.log(opacity, index);
         if (opacity[index] === 1)
+        {
             setOpacity(new Array(5).fill(1));
+            setRating(-1);
+        }
+            
     }
     return (
         <div className="container w-75 my-5">

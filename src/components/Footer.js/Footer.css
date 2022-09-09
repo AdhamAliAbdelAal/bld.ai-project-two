@@ -1,0 +1,33 @@
+footer > .fluid{
+    width: 91% !important;
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+.udemy-span
+{
+    color:#cec0fc;
+}
+.udemy-span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.gap-customized
+{
+    gap:20px;
+}
+.footer-links >.col-4{
+    font-size: 0.9rem;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    cursor: pointer;
+    padding-left: 0;
+}
+.footer-links >.col-4:hover{
+    text-decoration: underline;
+}
+.english-button{
+    width:150px;
+    top:0;
+    right: 0;
+    cursor: pointer;
+}

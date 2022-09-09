@@ -1,7 +1,15 @@
-import React from 'react';
+import { useContext, useState } from "react";
+import ReviewsContext from "../../context/ReviewsContext";
 import SearchIcon from '@mui/icons-material/Search';
 import ReviewsList from './ReviewsList';
+import FeedbackContext from "../../context/FeedbackContext";
 const Reviews = () => {
+    const reviews = useContext(ReviewsContext);
+    const { rating } = useContext(FeedbackContext);
+    const [search, setSearch] = useState("");
+    const filterReviews = reviews.filter(review => {
+        return ((review.content.match(new RegExp(search, "i"))) && (rating < 0 || (Math.floor(review.rate) === rating)));
+    });
     return (
         <div className="container w-75 my-5">
             <div className="course-container">
@@ -10,8 +18,11 @@ const Reviews = () => {
                 </h4>
                 <div className="reviews-div d-flex p-0 gap-3 mb-4">
                     <form className='search-reviews d-flex align-items-center justify-content-between p-0'>
-                        <input type="text" placeholder='Search reviews' className='px-2 flex-grow-1' />
-                        <button className='bg-dark review-button p-0'>
+                        <input type="text" placeholder='Search reviews' className='px-2 flex-grow-1'
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+                        <button className='bg-dark review-button p-0' onClick={(e) => e.preventDefault()}>
                             <SearchIcon
                                 sx={{
                                     color: "#fff",
@@ -26,7 +37,8 @@ const Reviews = () => {
                         </option>
                     </select>
                 </div>
-                <ReviewsList/>
+                <ReviewsList reviews={filterReviews}
+                />
             </div>
         </div>
     );

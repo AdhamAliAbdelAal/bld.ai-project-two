@@ -1,13 +1,7 @@
-import { useContext } from "react";
-import ReviewsContext from "../../context/ReviewsContext";
 import { Avatar, Rating } from "@mui/material";
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
-import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-const ReviewsList = () => {
-    const reviews = useContext(ReviewsContext);
-    console.log(reviews);
+import LikeAndDislike from "./LikeAndDislike";
+
+const ReviewsList = ({reviews}) => {
     return (
         <div className="">
             {
@@ -52,10 +46,7 @@ const ReviewsList = () => {
                                 >
                                     Was this review helpful?
                                 </p>
-                                <div className="d-flex">
-                                    <ThumbUpOffAltIcon />
-                                    <ThumbDownOffAltIcon/>
-                                </div>
+                                <LikeAndDislike />
                             </div>
                             <hr className="my-3" />
                         </div>
