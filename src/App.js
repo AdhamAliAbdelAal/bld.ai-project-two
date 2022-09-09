@@ -1,15 +1,21 @@
 import Home from './pages/Home/Home';
-import Footer from './components/Footer.js/Footer';
+import Footer from './components/Footer/Footer';
 import { SearchProvider } from './context/SearchContext';
 import Navbar from './components/NavBar/Navbar';
 import CourseDetails from './pages/CoursePage/CourseDetails';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <>
       <SearchProvider>
+      <Router>
         <Navbar />
-        {/* <Home /> */}
-        <CourseDetails />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/:id" element={<CourseDetails />} />
+          </Routes>
+        </Router>
+        
       </SearchProvider>
       <Footer />
     </>

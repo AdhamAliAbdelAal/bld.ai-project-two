@@ -1,8 +1,9 @@
 import renderStars from "./Starts";
+import {Link} from 'react-router-dom';
 const CourseCard = ({ course }) => {
-    const {image,title,author,rating,people,price,discount}=course;
+    const {id,image,title,author,rating,people,price,discount}=course;
     return (
-        <div className="course-card mx-1">
+        <Link to={`/${id}`} className="course-card mx-1">
             <img src={image} alt="course" />
             <div className="course-details">
                 <h4 className="text-capitalize fs-6 fw-bold">{title}</h4>
@@ -15,7 +16,7 @@ const CourseCard = ({ course }) => {
                 <span className="price-span">E£{price} &nbsp;</span>
                 <span className="old-price-span">E£{discount}</span>
             </div>
-        </div>
+        </Link>
     );
 }
 

@@ -11,14 +11,18 @@ import Feedback from "../../components/Courses/Feedback";
 import Reviews from "../../components/Courses/Reviews";
 import { ReviewsProvider } from "../../context/ReviewsContext";
 import { FeedbackProvider } from "../../context/FeedbackContext";
+import Loading from "../../components/Loading";
 const CourseDetails = () => {
     const [data, setData] = useState(null);
     useEffect(() => {
-        fetch("http://localhost:8000/courses").then(res => res.json()).then(data => setData(data[0]))
+        setTimeout(()=>{
+            fetch("http://localhost:8000/courses").then(res => res.json()).then(data => setData(data[0]));
+        },2000);
+        
     }, []);
     console.log(data);
     if (!data)
-        return null;
+        return <Loading />
     return (
         <>
             <CourseHeader data={data} />

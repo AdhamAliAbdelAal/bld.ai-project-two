@@ -2,7 +2,7 @@ import "./Footer.css";
 import LanguageIcon from '@mui/icons-material/Language';
 const Footer = () => {
     return (
-        <footer className='fluid bg-dark text-white m-0'>
+        <footer className='fluid bg-dark text-white m-0 mt-5'>
             <div className="fluid mx-auto w-100 d-flex align-items-center justify-content-between">
                 <h5 className="mb-0">
                     Top companies choose <span class="udemy-span">Udemy Business</span> to build in-demand career skills.

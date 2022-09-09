@@ -5,7 +5,7 @@ import FeedbackContext from "../../context/FeedbackContext";
 const Feedback = ({ studentFeedback, rate }) => {
     const {setRating}=useContext(FeedbackContext);
     const ratings = [5, 4, 3, 2, 1];
-    const [opacity, setOpacity] = useState([1, 0.5, 0.5, 0.5, 0.5]);
+    const [opacity, setOpacity] = useState([0.5, 0.5, 0.5, 0.5, 0.5]);
     const handleActive = (index) => {
         const newOpacity = new Array(5).fill(0.5);
         newOpacity[index] = 1;
@@ -18,7 +18,6 @@ const Feedback = ({ studentFeedback, rate }) => {
             setOpacity(new Array(5).fill(1));
             setRating(-1);
         }
-            
     }
     return (
         <div className="container w-75 my-5">
