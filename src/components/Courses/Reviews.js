@@ -11,7 +11,7 @@ const Reviews = () => {
         return ((review.content.match(new RegExp(search, "i"))) && (rating < 0 || (Math.floor(review.rate) === rating)));
     });
     return (
-        <div className="main-container my-5">
+        <div className="main-container my-5 " id="reviews">
             <div className="course-container">
                 <h4 className="fw-bold fs-4 mb-3">
                     Reviews

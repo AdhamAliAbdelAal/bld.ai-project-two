@@ -12,19 +12,21 @@ import Reviews from "../../components/Courses/Reviews";
 import { ReviewsProvider } from "../../context/ReviewsContext";
 import { FeedbackProvider } from "../../context/FeedbackContext";
 import Loading from "../../components/Loading";
+import BlackHeader from "../../components/Courses/BlackHeader";
 const CourseDetails = () => {
     const [data, setData] = useState(null);
     useEffect(() => {
-        setTimeout(()=>{
+        setTimeout(() => {
             fetch("http://localhost:8000/courses").then(res => res.json()).then(data => setData(data[0]));
-        },2000);
-        
+        }, 2000);
+
     }, []);
     console.log(data);
     if (!data)
         return <Loading />
     return (
         <>
+            <BlackHeader rate={data.rate} ratingCount={data.ratingCount} students={data.enrollCount} title={data.title} />
             <CourseHeader data={data} />
             <CourseTabs />
             <hr style={{ margin: 0 }} />

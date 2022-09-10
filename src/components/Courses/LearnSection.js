@@ -2,7 +2,7 @@ import React from 'react';
 
 const LearnSection = ({ overview }) => {
     return (
-        <div className="main-container my-4">
+        <div className="main-container my-4" id="overview">
             <div className="course-container border border-1 ps-4">
                 <h3 className='fs-4 fw-bolder my-4' >
                     What you'll learn

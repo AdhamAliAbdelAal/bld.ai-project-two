@@ -5,7 +5,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CircularProgress from '@mui/material/CircularProgress';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-const CouresFixedCard = () => {
+const CouresFixedCard = ({image,price,discount,hoursCount}) => {
   const buttonTheme = createTheme(
     {
       palette: {
@@ -50,10 +50,21 @@ const CouresFixedCard = () => {
   let prevScroll = 0;
 
   const handleScroll = () => {
-    console.log(window.scrollY);
-    if (window.scrollY > 470) {
-      if (prevScroll > 470)
+    //console.log(window.scrollY);
+    const maxScroll=2820;
+    if(window.scrollY>=maxScroll)
+    {
+      courseCardRef.current.style.transition = "0s";
+      const curr=window.scrollY-maxScroll;
+      courseCardRef.current.style.bottom=`${curr}px`;
+      courseCardRef.current.style.top=`auto`;
+      courseCardRef.current.style.zIndex=0;
+    }
+    else if (window.scrollY > 470) {
+      if (prevScroll > 470 &&prevScroll<maxScroll)
         return;
+      courseCardRef.current.style.zIndex=1000000;
+      courseCardRef.current.style.bottom="20px";
       courseCardRef.current.style.top = "20px";
       courseCardRef.current.style.position = "fixed";
       imageDivRef.current.style.display = "none";
@@ -70,6 +81,7 @@ const CouresFixedCard = () => {
     else {
       if (prevScroll <= 470)
         return;
+      courseCardRef.current.style.bottom="auto";
       courseCardRef.current.style.transition = "0s";
       courseCardRef.current.style.opacity = 1;
       courseCardRef.current.style.top = "103px";
@@ -95,15 +107,16 @@ const CouresFixedCard = () => {
           </div>
         </div>
         <div className="layer"></div>
+        <img src={image} className="w-100 h-100" alt="" />
 
       </div>
       <div className='px-4 pt-4 pb-3'>
         <div className='d-flex gap-2'>
           <div className='fw-bolder fs-2 course-price'>
-            E£179.99
+            E£{price}
           </div>
           <div className='course-discount d-flex align-items-center text-muted text-decoration-line-through'>
-            E£679.99
+            E£{discount}
           </div>
           <div className='d-flex align-items-center'>
             74% off
@@ -154,7 +167,7 @@ const CouresFixedCard = () => {
           <li className='d-flex gap-3'>
             <i className="bi bi-play-btn"></i>
             <p className='m-0'>
-              14 hours on-demand video
+              {hoursCount} hours on-demand video
             </p>
           </li>
           <li className='d-flex gap-3'>

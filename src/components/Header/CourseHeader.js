@@ -6,7 +6,7 @@ import ClosedCaptionIcon from '@mui/icons-material/ClosedCaption';
 import CouresFixedCard from '../Courses/CouresFixedCard';
 const CourseHeader = ({data}) => {
     const { title, Introduction, rate, ratingCount, enrollCount: students, instructor,
-        lastUpdate } = data;
+        lastUpdate,image,price,originalPrice:discount,hoursCount } = data;
     return (
         <div className="bg-dark text-white">
             <div className="main-container">
@@ -69,7 +69,7 @@ const CourseHeader = ({data}) => {
                         </div>
                     </div>
                 </div>
-                <CouresFixedCard />
+                <CouresFixedCard image={image} price={price}discount={discount} hoursCount={hoursCount} />
             </div>
         </div>
     );
