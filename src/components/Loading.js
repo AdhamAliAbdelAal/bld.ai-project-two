@@ -6,7 +6,7 @@ const Loading = () => {
         }}>
             <CircularProgress
                 sx={{
-                    color: "#6B7074"
+                    color: "#000"
                 }}
             />
         </div>

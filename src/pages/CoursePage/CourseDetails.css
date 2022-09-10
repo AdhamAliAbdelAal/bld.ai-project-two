@@ -10,20 +10,110 @@
 .course-container {
     max-width: 720px;
 }
-.main-container
-{
+
+.main-container {
     max-width: 1182px;
     margin: auto;
 }
-.course-card2{
-    width:340px;
-    height: 880px;
-    border:1px solid #fff;
+
+.course-card2 {
+    width: 340px;
+    /* height: 880px; */
+    border: 1px solid #fff;
     position: absolute;
-    right: 240px;
-    top:103px;
+    right: 230px;
+    top: 103px;
     z-index: 1000000;
-    box-shadow: 2px 2px 30px rgba(0,0,0,.175),-2px -2px 30px rgba(0,0,0,.175);
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.108), -2px -2px 30px rgba(0, 0, 0, 0.108);
+    transition: 0s;
+}
+
+.image-div {
+    background-image: url("https://img-b.udemycdn.com/course/240x135/394676_ce3d_5.jpg");
+    background-size: cover;
+}
+
+.hold-play {
+    cursor: pointer;
+}
+
+.play-icon {
+    color: #000;
+    font-size: 3rem !important;
+}
+.layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000030;
+}
+.course-video{
+    z-index: 100;
+}
+.course-preview{
+    padding-bottom: 10px;
+    padding-top: 14px;
+}
+
+.course-discount{
+    font-size: 1.1rem;   
+}
+
+.discount-alert
+{
+    color:#b32d0f;
+    font-size: 0.9rem;
+}
+.add-to-cart{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    background-color: #9c15f8 !important;
+    text-transform: initial !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+}
+
+.like-button{
+    font-size: 1.6rem !important;
+    font-weight: bolder !important;
+}
+.loading-like{
+    color: #000 !important;
+}
+.like-div{
+    cursor: pointer;
+    padding-left: 10px ;
+    padding-right: 10px;
+}
+
+.myButton{
+    text-transform: none !important;
+    font-size: 1rem !important;
+}
+
+.course-includes{
+    list-style-type:none;
+}
+.course-includes p,.team-access{
+    color:#515151;
+}
+.team-access,.course-includes{
+    font-size: 0.88rem;
+}
+.course-includes li{
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.course-includes i{
+    font-weight: bolder;
+}
+
+.course-link2
+{
+    font-size: 0.9rem !important;
 }
 
 .mx-05 {
@@ -99,11 +189,11 @@ ul.overview {
 .instructor-description {
     font-size: 0.95rem;
 }
+
 .req-item,
 .description,
-.instructor-description
-{
-    color:#515151;
+.instructor-description {
+    color: #515151;
 }
 
 ul.vidoes-list {
@@ -180,33 +270,35 @@ ul.req {
     color: #4c22b8;
 }
 
-.num
-{
+.num {
     color: #b4690e;
-    font-weight:bolder;
+    font-weight: bolder;
     font-size: 4.4rem;
     font-family: sans-serif;
 }
 
-.search-reviews > *,.select-review
-{
+.search-reviews>*,
+.select-review {
     border: 0;
     outline: 0;
 }
-.search-reviews,.select-review{
-    border:1px solid #000;
+
+.search-reviews,
+.select-review {
+    border: 1px solid #000;
     height: 40px;
 }
-.review-button
-{
+
+.review-button {
     height: 103%;
-    width:44px;
+    width: 44px;
 }
-.search-reviews
-{
+
+.search-reviews {
     flex-grow: 4;
     border-right: 0;
 }
-.select-review{
+
+.select-review {
     flex-grow: 2;
 }
