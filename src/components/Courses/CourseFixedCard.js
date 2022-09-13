@@ -5,7 +5,9 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CircularProgress from '@mui/material/CircularProgress';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-const CouresFixedCard = ({image,price,discount,hoursCount}) => {
+import styles from './CourseFixedCard.module.css';
+
+const CourseFixedCard = ({ image, price, discount, hoursCount }) => {
   const buttonTheme = createTheme(
     {
       palette: {
@@ -30,20 +32,19 @@ const CouresFixedCard = ({image,price,discount,hoursCount}) => {
 
   const LoadingElements = [
     <FavoriteBorderIcon
-      className='like-button'
+      className={`${styles['like-button']}`}
       onClick={handleLike}
     />,
     <FavoriteIcon
-      className='like-button'
+      className={`${styles['like-button']}`}
       onClick={handleLike}
     />
     ,
     <CircularProgress
-      className='loading-like'
+      className={`${styles['loading-like']}`}
       size={25}
     />
-  ]
-
+  ];
 
   const courseCardRef = useRef(null);
   const imageDivRef = useRef(null);
@@ -51,20 +52,19 @@ const CouresFixedCard = ({image,price,discount,hoursCount}) => {
 
   const handleScroll = () => {
     //console.log(window.scrollY);
-    const maxScroll=2820;
-    if(window.scrollY>=maxScroll)
-    {
+    const maxScroll = 2820;
+    if (window.scrollY >= maxScroll) {
       courseCardRef.current.style.transition = "0s";
-      const curr=window.scrollY-maxScroll;
-      courseCardRef.current.style.bottom=`${curr}px`;
-      courseCardRef.current.style.top=`auto`;
-      courseCardRef.current.style.zIndex=0;
+      const curr = window.scrollY - maxScroll;
+      courseCardRef.current.style.bottom = `${curr}px`;
+      courseCardRef.current.style.top = `auto`;
+      courseCardRef.current.style.zIndex = 0;
     }
     else if (window.scrollY > 470) {
-      if (prevScroll > 470 &&prevScroll<maxScroll)
+      if (prevScroll > 470 && prevScroll < maxScroll)
         return;
-      courseCardRef.current.style.zIndex=1000000;
-      courseCardRef.current.style.bottom="20px";
+      courseCardRef.current.style.zIndex = 1000000;
+      courseCardRef.current.style.bottom = "20px";
       courseCardRef.current.style.top = "20px";
       courseCardRef.current.style.position = "fixed";
       imageDivRef.current.style.display = "none";
@@ -81,7 +81,7 @@ const CouresFixedCard = ({image,price,discount,hoursCount}) => {
     else {
       if (prevScroll <= 470)
         return;
-      courseCardRef.current.style.bottom="auto";
+      courseCardRef.current.style.bottom = "auto";
       courseCardRef.current.style.transition = "0s";
       courseCardRef.current.style.opacity = 1;
       courseCardRef.current.style.top = "103px";
@@ -90,39 +90,49 @@ const CouresFixedCard = ({image,price,discount,hoursCount}) => {
     }
     prevScroll = window.scrollY;
   }
-
+  const maxScreen = 1520;
+  const rightPosition = 160;
+  const resize = () => {
+    //courseCardRef.current.style.right = `${rightPosition + (window.innerWidth - maxScreen) / 10}px`;
+    //console.log(courseCardRef.current.style.right);
+  }
   useEffect(() => {
+    //courseCardRef.current.style.right = `${rightPosition + (window.innerWidth - maxScreen) / 2}px`;
     document.addEventListener("scroll", handleScroll);
-    return () => { document.removeEventListener("scroll", handleScroll) };
-  }, [])
+    window.addEventListener("resize", resize);
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
   return (
-    <div className='course-card2 bg-white text-dark' ref={courseCardRef}>
-      <div className='w-100 image-div position-relative' style={{ height: "191px" }} ref={imageDivRef}>
-        <div className='course-video d-flex gap-3 flex-column justify-content-end align-items-center w-100 h-100 position-absolute'>
-          <div className="bg-white rounded-circle p-2 hold-play">
-            <PlayArrowIcon className="play-icon" />
+    <div className={`${styles['course-card2']} bg-white text-dark`} ref={courseCardRef}>
+      <div className='w-100 position-relative' style={{ height: "191px" }} ref={imageDivRef}>
+        <div className={`${styles['course-video']} d-flex gap-3 flex-column justify-content-end align-items-center w-100 h-100 position-absolute`}>
+          <div className={`bg-white rounded-circle p-2 ${styles['hold-play']}`}>
+            <PlayArrowIcon className={`${styles['play-icon']}`} />
           </div>
-          <div className='text-white fw-bold fs-6 course-preview'>
+          <div className={`text-white fw-bold fs-6 ${styles['course-preview']}`}>
             Preview this course
           </div>
         </div>
-        <div className="layer"></div>
+        <div className={`${styles['layer']}`}></div>
         <img src={image} className="w-100 h-100" alt="" />
 
       </div>
       <div className='px-4 pt-4 pb-3'>
         <div className='d-flex gap-2'>
-          <div className='fw-bolder fs-2 course-price'>
+          <div className={`fw-bolder fs-2`}>
             E£{price}
           </div>
-          <div className='course-discount d-flex align-items-center text-muted text-decoration-line-through'>
+          <div className={`${styles['course-discount']} d-flex align-items-center text-muted text-decoration-line-through`}>
             E£{discount}
           </div>
           <div className='d-flex align-items-center'>
             74% off
           </div>
         </div>
-        <div className='discount-alert'>
+        <div className={`${styles['discount-alert']}`}>
           <i className="bi bi-alarm me-2"></i>
           <b>51 minutes</b> left at this price!
         </div>
@@ -131,12 +141,12 @@ const CouresFixedCard = ({image,price,discount,hoursCount}) => {
             <Button
               variant="contained"
               color='secondary'
-              className='rounded-0 add-to-cart w-100'
+              className={`rounded-0 ${styles['add-to-cart']} w-100`}
             >
               Add to cart
             </Button>
           </div>
-          <div className="border border-1 border-dark d-flex justify-content-center align-items-center like-div">
+          <div className={`border border-1 border-dark d-flex justify-content-center align-items-center ${styles['like-div']}`}>
             {LoadingElements[+like]}
           </div>
         </div>
@@ -144,7 +154,7 @@ const CouresFixedCard = ({image,price,discount,hoursCount}) => {
           <ThemeProvider theme={buttonTheme}>
             <Button
               variant="outlined"
-              className="rounded-0 py-2 fw-bold myButton w-100"
+              className={`rounded-0 py-2 fw-bold ${styles['myButton']}  w-100`}
               color="primary"
             >
               Buy now
@@ -163,7 +173,7 @@ const CouresFixedCard = ({image,price,discount,hoursCount}) => {
         <h6 className='fw-bolder'>
           This course includes:
         </h6>
-        <ul className='course-includes mx-0 px-0'>
+        <ul className={`${styles['course-includes']} mx-0 px-0`}>
           <li className='d-flex gap-3'>
             <i className="bi bi-play-btn"></i>
             <p className='m-0'>
@@ -210,14 +220,14 @@ const CouresFixedCard = ({image,price,discount,hoursCount}) => {
       <hr className='m-0' />
       <div className='px-4 py-3' >
         <h5>Training 5 or more people?</h5>
-        <p className='team-access'>
+        <p className={`${styles['team-access']}`}>
           Get your team access to 17,000+ top Udemy courses anytime, anywhere.
         </p>
         <div>
           <ThemeProvider theme={buttonTheme}>
             <Button
               variant="outlined"
-              className="rounded-0 py-2 fw-bold myButton w-100"
+              className={`rounded-0 py-2 fw-bold ${styles['myButton']}  w-100`}
               color="primary"
             >
               Try Udemy Business
@@ -229,4 +239,4 @@ const CouresFixedCard = ({image,price,discount,hoursCount}) => {
   );
 }
 
-export default CouresFixedCard;
+export default CourseFixedCard;

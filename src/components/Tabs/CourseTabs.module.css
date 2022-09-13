@@ -1,0 +1,10 @@
+.tabs-div{
+    z-index: 100000;
+    top:76px;
+}
+@media only screen and (max-width:1080px)
+{
+    .tabs-div{
+        top:0;
+    }
+}

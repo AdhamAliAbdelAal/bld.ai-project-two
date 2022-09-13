@@ -16,7 +16,7 @@ const Reviews = () => {
                 <h4 className="fw-bold fs-4 mb-3">
                     Reviews
                 </h4>
-                <div className="reviews-div d-flex p-0 gap-3 mb-4">
+                <div className="reviews-div d-flex p-0 gap-3 mb-4 flex-md-row flex-column">
                     <form className='search-reviews d-flex align-items-center justify-content-between p-0'>
                         <input type="text" placeholder='Search reviews' className='px-2 flex-grow-1'
                             value={search}

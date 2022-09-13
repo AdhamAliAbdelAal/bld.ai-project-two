@@ -1,0 +1,13 @@
+.progress-container
+{
+    flex-grow: 100;
+}
+.rating-container
+{
+    flex-grow: 7;
+    top: -8px;
+}
+.close-icon{
+    top: -8px;
+    flex-grow: 1;
+}

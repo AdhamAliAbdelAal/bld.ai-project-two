@@ -2,6 +2,7 @@ import { Rating } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import { useState, useContext } from "react";
 import FeedbackContext from "../../context/FeedbackContext";
+import styles from './Feedback.module.css';
 const Feedback = ({ studentFeedback, rate }) => {
     const { setRating } = useContext(FeedbackContext);
     const ratings = [5, 4, 3, 2, 1];
@@ -24,7 +25,7 @@ const Feedback = ({ studentFeedback, rate }) => {
                 <h4 className="fw-bold fs-4 mb-2">
                     Students feedback
                 </h4>
-                <div className="d-flex flex-sm-row flex-column gap-sm-5">
+                <div className="d-flex flex-sm-row flex-column gap-sm-4">
                     <div className="d-flex flex-column">
                         <span className="num">
                             {rate}
@@ -56,13 +57,13 @@ const Feedback = ({ studentFeedback, rate }) => {
                             studentFeedback.map((ele, index) => {
                                 return (
                                     <div key={ratings[index]}
-                                        className="mx-0 row p-0 pt-2 rating-item"
+                                        className="mx-0 d-flex p-0 pt-2"
                                         style={{
                                             opacity: opacity[index],
                                             cursor: "pointer"
                                         }}
                                     >
-                                        <div className="col-8 p-0"
+                                        <div className={`${styles['progress-container']}`}
                                             onClick={() => { handleActive(index) }}
                                         >
                                             <div className="progress rounded-0" style={{
@@ -76,14 +77,9 @@ const Feedback = ({ studentFeedback, rate }) => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="mx-0 p-0 col-4 row position-relative"
-                                            style={{
-                                                top: "-8px"
-                                            }}
-                                        >
-                                            <div
+                                        <div
                                                 onClick={() => { handleActive(index) }}
-                                                className="col-7 d-flex justify-content-center px-0"
+                                                className={`${styles['rating-container']} d-flex justify-content-center position-relative`}
                                                 >
                                                 <Rating name="read-only"
                                                     value={ratings[index]}
@@ -97,10 +93,13 @@ const Feedback = ({ studentFeedback, rate }) => {
                                                 />
                                             </div>
                                             <div
-                                                className="text-decoration-underline col-2 px-0"
+                                                className="text-decoration-underline position-relative"
                                                 style={{
                                                     color: "#5624d0",
-                                                    cursor: "pointer"
+                                                    cursor: "pointer",
+                                                    top: "-8px",
+                                                    flexGrow:1,
+                                                    minWidth:"33px"
                                                 }}
                                                 onClick={() => {
                                                     handleActive(index);
@@ -112,11 +111,10 @@ const Feedback = ({ studentFeedback, rate }) => {
                                                 onClick={() => {
                                                     handleActiveAll(index);
                                                 }}
-                                                className="col-2 px-0"
+                                                className={`position-relative ${styles['close-icon']}`}
                                             >
                                                 <CloseIcon fontSize="small" />
                                             </div>
-                                        </div>
                                     </div>
                                 );
                             })

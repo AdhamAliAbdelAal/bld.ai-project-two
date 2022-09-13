@@ -1,13 +1,10 @@
 import { useState } from "react";
-
+import styles from './CourseTabs.module.css';
 const CourseTabs = () => {
     const tabs = ["overview", "curriculum", "instructor", "reviews"];
     const [value, setvalue] = useState("overview");
     return (
-        <div className="fluid position-sticky bg-white" style={{
-            zIndex: 100000,
-            top:"80px"
-        }}>
+        <div className={`fluid position-sticky bg-white ${styles['tabs-div']}`}>
             <div className="main-container">
                 <div className="course-container d-flex justify-content-between">
                     {tabs.map(tab => {
@@ -26,7 +23,6 @@ const CourseTabs = () => {
                 </div>
             </div>
         </div>
-
     );
 }
 

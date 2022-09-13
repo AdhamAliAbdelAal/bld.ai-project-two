@@ -10,7 +10,7 @@ const LearnSection = ({ overview }) => {
                 <ul className='row overview'>
                     {overview.map(ele => {
                         return (
-                            <li className='col-6 overview-item py-1' key={ele}>{ele}</li>
+                            <li className='col-12 col-md-6 overview-item py-1' key={ele}>{ele}</li>
                         );
                     })}
                 </ul>

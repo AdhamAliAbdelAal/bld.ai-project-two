@@ -15,14 +15,15 @@ footer > .fluid{
 {
     gap:20px;
 }
-.footer-links >.col-4{
+.footer-links >.col-sm-4{
     font-size: 0.9rem;
     padding-top: 4px;
     padding-bottom: 4px;
     cursor: pointer;
     padding-left: 0;
+    white-space:nowrap;
 }
-.footer-links >.col-4:hover{
+.footer-links >.col-sm-4:hover{
     text-decoration: underline;
 }
 .english-button{
