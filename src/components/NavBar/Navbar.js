@@ -1,5 +1,5 @@
 import { useRef,useContext } from "react";
-import SearchContext from "../../context/SearchContext";
+import SearchContext from "../../contexts/SearchContext";
 const Navbar = () => {
     const inputRef=useRef(null);
     const {setSearch}=useContext(SearchContext);

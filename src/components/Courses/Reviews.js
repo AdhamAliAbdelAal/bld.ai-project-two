@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import ReviewsContext from "../../context/ReviewsContext";
+import ReviewsContext from "../../contexts/ReviewsContext";
 import SearchIcon from '@mui/icons-material/Search';
 import ReviewsList from './ReviewsList';
-import FeedbackContext from "../../context/FeedbackContext";
+import FeedbackContext from "../../contexts/FeedbackContext";
 const Reviews = () => {
     const reviews = useContext(ReviewsContext);
     const { rating } = useContext(FeedbackContext);

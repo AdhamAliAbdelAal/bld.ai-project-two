@@ -12,7 +12,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CircularProgress from '@mui/material/CircularProgress';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 const CourseHeader = ({ data }) => {
-    const { title, Introduction, rate, ratingCount, enrollCount: students, instructor,
+    const { title, Introduction, rate, ratingCount, enrollCount: students, instructors,
         lastUpdate, image, price, originalPrice: discount, hoursCount } = data;
     const courseFixedCard = () => {
         if (window.innerWidth > 1080)
@@ -20,6 +20,7 @@ const CourseHeader = ({ data }) => {
         else
             return (null);
     }
+    console.log(instructors);
     const [fixedCard, setFixedCard] = useState(courseFixedCard());
     const resize = () => {
         setFixedCard(courseFixedCard());
@@ -96,7 +97,11 @@ const CourseHeader = ({ data }) => {
                         </p>
                     </div>
                     <p className={`${styles['mb-customized']}`}>
-                        Created by <span className={`${styles['instructor-par']} header-font`}>{instructor.name}</span>
+                        Created by <span className={`${styles['instructor-par']} header-font`}>
+                            {instructors.map(instructor=>{
+                                return `${instructor.name}, `
+                            })}
+                            </span>
                     </p>
                     <div className={`header-font ${styles['subtitles']} d-flex`}>
                         <div className={`${styles['mb-customized']}`}>

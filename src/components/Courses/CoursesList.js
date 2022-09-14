@@ -1,7 +1,7 @@
 import React from 'react';
 import CourseCard from './CourseCard';
 import {useContext } from "react";
-import SearchContext from "../../context/SearchContext";
+import SearchContext from "../../contexts/SearchContext";
 const CoursesList = React.forwardRef (({courses},ref) => {
     const {search}=useContext(SearchContext);
     courses= courses.filter( ({title})=>{

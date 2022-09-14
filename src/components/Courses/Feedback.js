@@ -1,7 +1,7 @@
 import { Rating } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import { useState, useContext } from "react";
-import FeedbackContext from "../../context/FeedbackContext";
+import FeedbackContext from "../../contexts/FeedbackContext";
 import styles from './Feedback.module.css';
 const Feedback = ({ studentFeedback, rate }) => {
     const { setRating } = useContext(FeedbackContext);

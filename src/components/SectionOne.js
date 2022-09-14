@@ -1,17 +1,12 @@
 import TabsSection from "./Tabs/TabsSection";
 import CoursesSection from "./Courses/CoursesSection";
 import Loading from "./Loading";
-import { useState, useEffect } from 'react';
+import { useState, useContext } from 'react';
+import GlobalContext from "../contexts/GlobalContext";
 
 const SectionOne = () => {
-    const [courses, setCourses] = useState(null);
     const [topic, setTopic] = useState(0);
-    useEffect(() => {
-        setTimeout(()=>{
-            fetch("http://localhost:7000/courses").then(response => response.json()).then(data => setCourses(data));
-        },2000);
-        
-    }, []);
+    const {courses}=useContext(GlobalContext);
     if (!courses)
         return <Loading />;
     return (
