@@ -90,19 +90,11 @@ const CourseFixedCard = ({ image, price, discount, hoursCount }) => {
     }
     prevScroll = window.scrollY;
   }
-  const maxScreen = 1520;
-  const rightPosition = 160;
-  const resize = () => {
-    //courseCardRef.current.style.right = `${rightPosition + (window.innerWidth - maxScreen) / 10}px`;
-    //console.log(courseCardRef.current.style.right);
-  }
+
   useEffect(() => {
-    //courseCardRef.current.style.right = `${rightPosition + (window.innerWidth - maxScreen) / 2}px`;
     document.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", resize);
     return () => {
       document.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", resize);
     };
   }, []);
   return (
@@ -177,7 +169,7 @@ const CourseFixedCard = ({ image, price, discount, hoursCount }) => {
           <li className='d-flex gap-3'>
             <i className="bi bi-play-btn"></i>
             <p className='m-0'>
-              {hoursCount} hours on-demand video
+              {hoursCount} on-demand video
             </p>
           </li>
           <li className='d-flex gap-3'>

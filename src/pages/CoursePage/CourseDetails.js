@@ -1,5 +1,5 @@
 import "./CourseDetails.css";
-import { useState, useEffect,useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import CourseHeader from "../../components/Header/CourseHeader";
 import CourseTabs from "../../components/Tabs/CourseTabs";
@@ -14,32 +14,16 @@ import { ReviewsProvider } from "../../contexts/ReviewsContext";
 import { FeedbackProvider } from "../../contexts/FeedbackContext";
 import Loading from "../../components/Loading";
 import BlackHeader from "../../components/Courses/BlackHeader";
-import GlobalContext from "../../contexts/GlobalContext";
+import NumberFormatting from "../../utilities/NumberFormatting";
 const CourseDetails = () => {
     const [data, setData] = useState(null);
-    const {courses}=useContext(GlobalContext);
-    let {id}=useParams();
-    useEffect(() => {
-        if(!courses)
-        return;
-        id=parseInt(id);
-        courses.every(topic=>{
-            const {courses}=topic;
-            let exit=true;
-            courses.every(course=>{
-                const {id:currentId,courseDetails}=course;
-                console.log(currentId,id);
-                if(currentId===id)
-                {
-                    setData(courseDetails);
-                    exit=false;
-                    return false;
-                }
-                return true;
-            })
-            return exit;
-        });
-    }, [courses,id]);
+    const [curriculum,setCurriculum]=useState(null);
+    const [reviews,setReviews]=useState(null);
+    const {id,topic}=useParams();
+    console.log(id,topic);
+
+    //formatting numbers
+
     useEffect(()=>{
         if(data)
             document.title=data.title;
@@ -47,19 +31,39 @@ const CourseDetails = () => {
             top:0,
             behavior:"instant"
         });
-        console.log(window.scrollY);
-    },[data])
-    console.log(data);
-    if (!data)
+    },[data]);
+
+    //fetching course from summary
+    useEffect(()=>{
+        fetch(`http://localhost:7000/summary/${topic}`).then(response => response.json()).then(data => setData(data['items'][id]));
+    },[id,topic]);
+
+    //fetching curriculum and reviews
+    useEffect(()=>{
+        if(!data)
+            return;
+        fetch(`http://localhost:7000/data/${data.id}`).then(response => response.json()).then(data => setCurriculum(data['curriculum_context']));
+        fetch(`http://localhost:7000/review/${data.id}`).then(response => response.json()).then(data => setReviews(data));
+    },[data,]);
+
+    console.log(data,curriculum,reviews);
+    if (!data||!curriculum||!reviews)
         return <Loading />
+    
+    
     return (
         <>
-            <BlackHeader rate={data.rate} ratingCount={data.ratingCount} students={data.enrollCount} title={data.title} price={data.price} originalPrice={data.originalPrice} />
+            <BlackHeader rate={data.rating.toFixed(1)} ratingCount={NumberFormatting(data.num_reviews)} students={NumberFormatting(data.num_subscribers)} title={data.title} price={data.price?.list_price?.amount} originalPrice={data.price?.discount_price?.amount} />
             <CourseHeader data={data} />
-            <CourseTabs />
             <hr style={{ margin: 0 }} />
-            <LearnSection overview={data.overview} />
-            <CourseContent content={data.content} />
+            <CourseTabs />
+            <LearnSection overview={data.objectives_summary} />
+            <CourseContent content={curriculum.data} lecturesCount={data.num_published_lectures}   />
+            {/*
+            
+            
+            
+            
             <CourseRequirements requirements={data.requirements} />
             <CourseDescription description={data.description} />
             <Instructors instructors={data.instructors} />
@@ -68,7 +72,7 @@ const CourseDetails = () => {
                 <ReviewsProvider value={data.reviews}>
                     <Reviews />
                 </ReviewsProvider>
-            </FeedbackProvider>
+            </FeedbackProvider> */}
         </>
     );
 }

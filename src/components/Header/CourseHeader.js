@@ -11,9 +11,13 @@ import { Button } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CircularProgress from '@mui/material/CircularProgress';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import NumberFormatting from "../../utilities/NumberFormatting";
 const CourseHeader = ({ data }) => {
-    const { title, Introduction, rate, ratingCount, enrollCount: students, instructors,
-        lastUpdate, image, price, originalPrice: discount, hoursCount } = data;
+    const { title, headline:Introduction, rating:rate, num_reviews:ratingCount, num_subscribers: students, visible_instructors: instructors,
+        last_update_date:lastUpdate, image_304x171:image, content_info_short:hoursCount ,price:priceObj } = data;
+        const price=priceObj?.list_price?.amount;
+        const discount=priceObj?.discount_price?.amount;
+
     const courseFixedCard = () => {
         if (window.innerWidth > 1080)
             return (<CourseFixedCard image={image} price={price} discount={discount} hoursCount={hoursCount} />);
@@ -87,13 +91,13 @@ const CourseHeader = ({ data }) => {
                         <div className="rating fw-bold" style={{
                             fontSize: "0.87rem"
                         }}>
-                            {rate} {renderStars(rate, "05")}
+                            {rate.toFixed(1)} {renderStars(rate, "05")}
                         </div>
                         <a className={`${styles['rating-count']} header-font`} href="dummy">
-                            ({ratingCount} ratings)
+                            ({NumberFormatting(ratingCount)} ratings)
                         </a>
                         <p className="header-font m-0">
-                            {students} students
+                            {NumberFormatting(students)} students
                         </p>
                     </div>
                     <p className={`${styles['mb-customized']}`}>

@@ -1,7 +1,7 @@
 import CoursesList from './CoursesList';
 import { useRef } from 'react';
 const CoursesSection = ({ course }) => {
-    const { topic, caption, courses, tip } = course;
+    const { title, header, description,items:courses,id} = course;
     const couresRef=useRef(null);
     const scrollRight=()=>{
         couresRef.current.scrollLeft -= 300;
@@ -10,12 +10,12 @@ const CoursesSection = ({ course }) => {
         couresRef.current.scrollLeft += 300;
     }
     return (
-        <div className=" topics-div">
+        <div className="topics-div">
             <div>
-                <h2 className="fs-5 fw-semibold">{caption}</h2>
-                <p>{tip}</p>
+                <h2 className="fs-5 fw-semibold">{header}</h2>
+                <p>{description}</p>
                 <div className="explore-button">
-                    <a href="dummy">explore {topic}</a>
+                    <a href="dummy">explore {title}</a>
                 </div>
             </div>
             <div className='left-scroll' onClick={scrollRight}>
@@ -24,7 +24,7 @@ const CoursesSection = ({ course }) => {
             <div className='right-scroll' onClick={scrollLeft}>
                 <i className="bi bi-chevron-right"></i>
             </div>
-            <CoursesList courses={courses} ref={couresRef}/>
+            <CoursesList topicId={id} courses={courses} ref={couresRef}/>
         </div>
     );
 }

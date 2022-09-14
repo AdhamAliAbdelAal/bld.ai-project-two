@@ -2,7 +2,7 @@ import React from 'react';
 import CourseCard from './CourseCard';
 import {useContext } from "react";
 import SearchContext from "../../contexts/SearchContext";
-const CoursesList = React.forwardRef (({courses},ref) => {
+const CoursesList = React.forwardRef (({courses,topicId},ref) => {
     const {search}=useContext(SearchContext);
     courses= courses.filter( ({title})=>{
         return title.match(new RegExp(search,"i"));
@@ -10,9 +10,9 @@ const CoursesList = React.forwardRef (({courses},ref) => {
     return (
         <div className="courses-div" ref={ref}>
             {
-                courses.map((course) => {
+                courses.map((course,index) => {
                     return (
-                        <CourseCard course={course} key={course.id} />
+                        <CourseCard id={index} course={course} topicId={topicId} key={course.id} />
                     )
                 })
             }
