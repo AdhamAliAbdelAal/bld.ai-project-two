@@ -1,0 +1,7 @@
+.reviews{
+    overflow-y: scroll;
+    max-height: 400px;
+}
+.reviews::-webkit-scrollbar{
+    width: 0;
+}

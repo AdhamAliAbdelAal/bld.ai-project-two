@@ -28,6 +28,9 @@
     *{
         margin: 0;
     }
+    .x{
+        height: 100rem;
+    }
 </style>
 
 <body>
@@ -50,7 +53,13 @@
     <div class="flas">
         adham
     </div>
-
+    <script>
+        window.addEventListener('scroll',()=>{
+            console.log(document.body.scrollHeight-scrollY,scrollY,Math.max( document.body.scrollHeight, document.body.offsetHeight, 
+            document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight ));
+        })
+        
+    </script>
 </body>
 
 </html>

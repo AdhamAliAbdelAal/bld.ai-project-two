@@ -8,7 +8,7 @@ const Reviews = () => {
     const { rating } = useContext(FeedbackContext);
     const [search, setSearch] = useState("");
     const filterReviews = reviews.filter(review => {
-        return ((review.content.match(new RegExp(search, "i"))) && (rating < 0 || (Math.floor(review.rate) === rating)));
+        return ((review.content.match(new RegExp(search, "i"))) && (rating < 0 || (Math.floor(parseFloat(review.rating)) === rating)));
     });
     return (
         <div className="main-container my-5 " id="reviews">

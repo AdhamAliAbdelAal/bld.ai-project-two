@@ -1,13 +1,14 @@
 import { Avatar, Rating } from "@mui/material";
 import LikeAndDislike from "./LikeAndDislike";
+import styles from "./ReviewList.module.css";
 
 const ReviewsList = ({reviews}) => {
     return (
-        <div className="">
+        <div className={`${styles['reviews']}`}>
             {
                 reviews.map(review => {
-                    const { name, id, content, rate } = review;
-                    const brief = name.split(" ").map(word => word[0]).join("");
+                    const { user, id, content, rating:rate,created_formatted_with_time_since:since} = review;
+                    const brief = user.name.split(" ").map(word => word[0]).join("");
                     return (
                         <div className="row mx-0" key={id}>
                             <Avatar className="col-4 bg-dark fs-6 fw-bold">
@@ -15,11 +16,11 @@ const ReviewsList = ({reviews}) => {
                             </Avatar>
                             <div className="col-8">
                                 <h5 className="fs-6 fw">
-                                    {name}
+                                    {user.name}
                                 </h5>
                                 <div className="d-flex gap-2">
-                                    <Rating name="half-rating-read"
-                                        value={parseInt(rate)}
+                                    <Rating
+                                        value={parseFloat(rate)}
                                         precision={0.1}
                                         size="small"
                                         readOnly
@@ -33,7 +34,7 @@ const ReviewsList = ({reviews}) => {
                                             top: "0px",
                                             fontSize: "0.8rem"
                                         }}
-                                    >2 weeks ago</p>
+                                    >{since}</p>
                                 </div>
                                 <p className="review-content my-2">
                                     {content}

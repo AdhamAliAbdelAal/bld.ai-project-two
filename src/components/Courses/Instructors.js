@@ -20,9 +20,9 @@ const Instructors = ({ instructors }) => {
                         Instructors
                     </h4>
                     {instructors.map(instructor => {
-                        const { name, Intro, Image, Rating, reviewsNumber, studentsNumber, coursesNumber, description } = instructor;
+                        const { title:name, job_title:Intro, image_100x100:Image, Instructor_Rating:Rating, Reviews:reviewsNumber, Students:studentsNumber, Courses:coursesNumber, description } = instructor;
                         return (
-                            <div className="instructor-div" key={name}>
+                            <div className="instructor-div my-4" key={name}>
                                 <h4 className='fs-5 instructor-name'>
                                     {name}
                                 </h4>
