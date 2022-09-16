@@ -8,13 +8,13 @@ function App() {
   return (
     <>
       <SearchProvider>
-          <Router>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/:topic/:id" element={<CourseDetails />} />
-            </Routes>
-          </Router>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/:topic/:id" element={<CourseDetails />} />
+          </Routes>
+        </Router>
       </SearchProvider>
       <Footer />
     </>

@@ -17,14 +17,14 @@ const CourseHeader = ({ data }) => {
         last_update_date:lastUpdate, image_304x171:image, content_info_short:hoursCount ,price:priceObj } = data;
         const price=priceObj?.list_price?.amount;
         const discount=priceObj?.discount_price?.amount;
-
+    
     const courseFixedCard = () => {
         if (window.innerWidth > 1080)
             return (<CourseFixedCard image={image} price={price} discount={discount} hoursCount={hoursCount} />);
         else
             return (null);
     }
-    console.log(instructors);
+
     const [fixedCard, setFixedCard] = useState(courseFixedCard());
     const resize = () => {
         setFixedCard(courseFixedCard());

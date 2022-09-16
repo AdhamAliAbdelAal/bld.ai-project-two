@@ -7,7 +7,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import styles from './CourseFixedCard.module.css';
 
-const CourseFixedCard = ({ image, price, discount, hoursCount }) => {
+const CourseFixedCard = ({image, price, discount, hoursCount }) => {
   const buttonTheme = createTheme(
     {
       palette: {
@@ -17,7 +17,6 @@ const CourseFixedCard = ({ image, price, discount, hoursCount }) => {
       }
     }
   );
-
   const [like, setLike] = useState(0);
   const handleLike = () => {
     setLike(2);
@@ -49,10 +48,10 @@ const CourseFixedCard = ({ image, price, discount, hoursCount }) => {
   const courseCardRef = useRef(null);
   const imageDivRef = useRef(null);
   let prevScroll = 0;
+  const footerHeight=500;
 
   const handleScroll = () => {
-    //console.log(window.scrollY);
-    const maxScroll = 2820;
+    const maxScroll =document.body.scrollHeight-footerHeight-window.innerHeight ;
     if (window.scrollY >= maxScroll) {
       courseCardRef.current.style.transition = "0s";
       const curr = window.scrollY - maxScroll;

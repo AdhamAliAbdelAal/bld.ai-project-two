@@ -1,7 +1,6 @@
 import CourseContentInfo from "./CourseContentInfo";
 import CourseAccordion from "./CourseAccordion";
 const CourseContent = ({ content ,lecturesCount}) => {
-    console.log(content)
     const {sections } = content;
     const totalLength="14h 42m";
     const sectionsCount=sections.length;
