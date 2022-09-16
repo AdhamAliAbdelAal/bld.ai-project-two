@@ -2,19 +2,33 @@ import { Accordion, AccordionSummary, AccordionDetails, Typography } from "@mui/
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { grey } from '@mui/material/colors';
-import ShowMore from 'react-show-more-button';
 import styles from './CourseAccordion.module.css';
-//{`${styles[]}`}
+import { useState } from "react";
+
 const CourseAccordion = ({ sections }) => {
+    const totalSections = sections.length;
+    const [displayedSections, setDisplayedSections] = useState(Math.min(7, totalSections));
+    const buttonContent = ((totalSections !== displayedSections) ? `Show More ${totalSections - displayedSections} Sections` : "Show Less Sections");
+    
+    const whichButton = () => {
+        if (totalSections === displayedSections) {
+            setDisplayedSections(7);
+        }
+        else {
+            setDisplayedSections(totalSections);
+        }
+    }
+
+    const handleClick = (e) => {
+        whichButton();
+    }
+
     return (
-        <ShowMore 
-        maxHeight={395}
-        className={`${styles['show-more-div']}`}
-        classNameButton={`flex-grow-1 ${styles['show-more-button']}`}
-        classNameButtonDiv={`${styles['button-div']}}`}
-        >
+        <>
             <div className="border border-1">
-                {sections.map(sec => {
+                {sections.map((sec, i) => {
+                    if (i >= displayedSections)
+                        return null;
                     const { index, title, lecture_count, content_length, items } = sec;
                     return (
                         <Accordion elevation={0}
@@ -67,8 +81,13 @@ const CourseAccordion = ({ sections }) => {
                     );
                 })}
             </div>
-        </ShowMore>
-
+            {
+                (totalSections <= 7) ||
+                <div onClick={handleClick} className={`${styles['show-more-button']}`}>
+                    {buttonContent}
+                </div>
+            }
+        </>
     );
 }
 

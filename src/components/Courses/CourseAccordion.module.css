@@ -11,28 +11,19 @@ ul.vidoes-list {
 }
 
 
-.show-more-div>div:nth-child(3) {
-    opacity: 1 !important;
-
-}
-
-.button-div {
-    padding: 0 !important;
-
-}
 
 .show-more-button {
-    background: rgb(255, 255, 255) !important;
-    color: rgb(0, 0, 0) !important;
-    padding: 7px 15px !important;
-    border-radius: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0) ;
+    padding: 10px 15px ;
+    border-radius: 0 ;
+    width: 100% ;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: bold;
     border: 1px solid #000;
     margin-top: 20px;
+    text-align: center;
 }
 
 .show-more-button:hover {
