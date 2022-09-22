@@ -1,0 +1,104 @@
+.course-card2 {
+    width: 340px;
+    border: 1px solid #fff;
+    position: absolute;
+    margin-left: 49rem;
+    top: 103px;
+    z-index: 1000000;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.108), -2px -2px 30px rgba(0, 0, 0, 0.108);
+    transition: 0s;
+}
+
+.course-video {
+    z-index: 100;
+}
+
+.play-icon {
+    color: #000;
+    font-size: 3rem !important;
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000030;
+}
+
+.course-preview {
+    padding-bottom: 10px;
+    padding-top: 14px;
+}
+
+.course-discount {
+    font-size: 1.1rem;
+}
+
+.discount-alert {
+    color: #b32d0f;
+    font-size: 0.9rem;
+}
+
+.add-to-cart {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    background-color: #9c15f8 !important;
+    text-transform: initial !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+}
+
+.like-button {
+    font-size: 1.6rem !important;
+    font-weight: bolder !important;
+}
+
+.loading-like {
+    color: #000 !important;
+}
+
+.like-div {
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.hold-play {
+    cursor: pointer;
+}
+
+.myButton {
+    text-transform: none !important;
+    font-size: 1rem !important;
+}
+
+.course-includes {
+    list-style-type: none;
+}
+
+.course-includes p,
+.team-access {
+    color: #515151;
+}
+
+.team-access,
+.course-includes {
+    font-size: 0.88rem;
+}
+
+.course-includes li {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.course-includes i {
+    font-weight: bolder;
+}
+
+@media only screen and (max-width:1180px) {
+    .course-card2 {
+        margin-left: 41rem;
+    }
+}

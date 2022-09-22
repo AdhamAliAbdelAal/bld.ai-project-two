@@ -1,0 +1,124 @@
+.mb-customized {
+    margin-bottom: 4px;
+}
+
+.rating-count {
+    color: #CEC0FC !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+    text-transform: lowercase;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.instructor-par {
+    color: #CEC0FC !important;
+    text-decoration: underline !important;
+}
+
+.subtitles {
+    gap: 20px;
+    padding-bottom: 33px;
+}
+
+.small-screen-header {
+    display: none;
+}
+
+.course-video {
+    z-index: 100;
+}
+
+.play-icon {
+    color: #000;
+    font-size: 3rem !important;
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000030;
+}
+
+.course-preview {
+    padding-bottom: 10px;
+    padding-top: 14px;
+    position: absolute;
+    bottom: 10px;
+    z-index: 10000;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.course-discount {
+    font-size: .95rem;
+    color: rgb(168, 168, 168);
+}
+
+.course-discount-percentage {
+    font-size: .9rem;
+}
+
+.discount-alert {
+    color: #fcaea0;
+    font-size: 0.9rem;
+}
+
+.add-to-cart {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    background-color: #9c15f8 !important;
+    text-transform: initial !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+}
+
+.like-button {
+    font-size: 1.6rem !important;
+    font-weight: bolder !important;
+}
+
+.loading-like {
+    color: #fff !important;
+}
+
+.like-div {
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.hold-play {
+    cursor: pointer;
+    position: absolute;
+    z-index: 10000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.course-price {
+    font-size: 2rem;
+}
+
+@media only screen and (max-width:1080px) {
+    .subtitles {
+        flex-direction: column;
+        gap: 5px;
+        padding-bottom: 10px;
+    }
+
+    .small-screen-header {
+        display: block;
+    }
+}
+
+@media only screen and (max-width:700px) {
+    .introduction {
+        font-size: 1rem !important;
+    }
+}
