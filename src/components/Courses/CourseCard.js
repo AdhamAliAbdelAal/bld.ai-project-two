@@ -14,7 +14,7 @@ const CourseCard = ({ course,topicId,id }) => {
                         return `${instructor.title}, `;
                     })}
                     </span>
-                <div className="rating">
+                <div className="rating-course">
                     {rating.toFixed(1)}
                     {renderStars(rating)}
                     <span className="coures-rating-span">({new Intl.NumberFormat().format(people)})</span>

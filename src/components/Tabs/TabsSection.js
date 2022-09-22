@@ -1,5 +1,7 @@
-
+import SearchContext from "../../contexts/SearchContext";
+import { useContext } from "react";
 const TabsSection = ({ activeTopic, setTopic }) => {
+    const {setSearch}=useContext(SearchContext);
     const topics = [
         "python",
         "excel",
@@ -11,6 +13,7 @@ const TabsSection = ({ activeTopic, setTopic }) => {
     ];
     const handleClick = (index) => {
         setTopic(index);
+        setSearch("");
     }
     return (
         <>

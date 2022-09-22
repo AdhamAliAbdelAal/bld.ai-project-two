@@ -40,10 +40,10 @@ const ImagesSection = () => {
     return (
         <section className="sec2 mt-3">
             <div className="row">
-                {images.map((image, index) => {
+                {images.map((image) => {
                     return (
-                        <div className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column mt-2" key={image.title}>
-                            <img src={image.image} className="w-100" alt={image.title} />
+                        <div className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column mt-2 topic-image-div" key={image.title}>
+                            <img src={image.image} className="w-100 topic-image" alt={image.title} />
                             <p className="h6 fw-bold text-capitalize">{image.title}</p>
                         </div>
                     );

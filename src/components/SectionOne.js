@@ -7,10 +7,10 @@ const SectionOne = () => {
     const [topic, setTopic] = useState(0);
     const [courses, setCourses] = useState(null);
     useEffect(() => {
-        setTimeout(()=>{
+        setTimeout(() => {
             fetch("http://localhost:7000/summary").then(response => response.json()).then(data => setCourses(data));
-        },2000);
-        
+        }, 2000);
+
     }, []);
     if (!courses)
         return <Loading />;

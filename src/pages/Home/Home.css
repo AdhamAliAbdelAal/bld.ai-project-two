@@ -212,12 +212,14 @@ header h1::first-letter,
     font-size: 0.9rem;
 }
 
+.rating-course {
+    color: #b4690e;
+    font-size: 0.9rem;
+}
+
 .courses-div {
     width: 100%;
     display: flex;
-    /* position: relative; */
-    /* justify-content: space-evenly; */
-    /* flex-wrap: wrap; */
     overflow: scroll;
     scroll-behavior: smooth;
 }
@@ -502,6 +504,7 @@ header h1::first-letter,
 .left-scroll {
     float: left;
     right: 14px;
+    display: none;
 }
 
 .sec2 {
@@ -512,5 +515,18 @@ header h1::first-letter,
 .sec2 .row {
     width: 90%;
     margin: auto;
-    /*background-color: #000;*/
+}
+.topic-image-div{
+    perspective: 150px;
+}
+
+.topic-image
+{
+    cursor: pointer;
+    transition: 0.25s;
+    margin-bottom: 20px;
+}
+.topic-image:hover
+{
+    transform: translateZ(10px);
 }
